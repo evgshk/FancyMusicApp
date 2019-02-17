@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyMusicApp.API", "FancyMusicApp.API\FancyMusicApp.API.csproj", "{DBB83821-6FB4-422B-817B-9A2C860CD00D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FancyMusicApp.API", "FancyMusicApp.API\FancyMusicApp.API.csproj", "{DBB83821-6FB4-422B-817B-9A2C860CD00D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FancyMusicApp.Services", "FancyMusicApp.Services\FancyMusicApp.Services.csproj", "{2AA08E43-F721-4EEE-ADE2-F8DCDB70D951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyMusicApp.Models", "FancyMusicApp.Models\FancyMusicApp.Models.csproj", "{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{DBB83821-6FB4-422B-817B-9A2C860CD00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBB83821-6FB4-422B-817B-9A2C860CD00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBB83821-6FB4-422B-817B-9A2C860CD00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA08E43-F721-4EEE-ADE2-F8DCDB70D951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA08E43-F721-4EEE-ADE2-F8DCDB70D951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA08E43-F721-4EEE-ADE2-F8DCDB70D951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA08E43-F721-4EEE-ADE2-F8DCDB70D951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
