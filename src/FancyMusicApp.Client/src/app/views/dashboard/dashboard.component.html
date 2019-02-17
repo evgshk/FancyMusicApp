@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title></title>
 </head>
+
 <body>
   <div class="animated fadeIn">
     Hello World!
+    <ng-container *ngFor="let i = index; let item of items" class="row">
+      <p>{{item}}</p>
+
+    </ng-container>
   </div>
 </body>
+
 </html>
