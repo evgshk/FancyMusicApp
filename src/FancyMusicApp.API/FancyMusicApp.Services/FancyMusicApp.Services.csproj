@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FancyMusicApp.Common\FancyMusicApp.Common.csproj" />
     <ProjectReference Include="..\FancyMusicApp.Models\FancyMusicApp.Models.csproj" />
   </ItemGroup>
 

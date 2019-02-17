@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ValuesService } from 'app/shared/services/values.service';
 import { CommonModule } from '@angular/common';
+import { LibraryService } from 'app/shared/services/library.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { CommonModule } from '@angular/common';
   ],
   declarations: [ DashboardComponent ],
   providers: [
-    ValuesService
+    ValuesService,
+    LibraryService
   ]
 })
 export class DashboardModule { }

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FancyMusicApp.Services", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyMusicApp.Models", "FancyMusicApp.Models\FancyMusicApp.Models.csproj", "{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyMusicApp.Common", "FancyMusicApp.Common\FancyMusicApp.Common.csproj", "{9F6065CA-DCC9-46A8-B5D0-5B8A958CD1FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA9A66CE-09AF-4671-B13A-9929E38FDAAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F6065CA-DCC9-46A8-B5D0-5B8A958CD1FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6065CA-DCC9-46A8-B5D0-5B8A958CD1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6065CA-DCC9-46A8-B5D0-5B8A958CD1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6065CA-DCC9-46A8-B5D0-5B8A958CD1FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

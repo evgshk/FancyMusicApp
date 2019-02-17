@@ -7,10 +7,31 @@
 
 <body>
   <div class="animated fadeIn">
-    Hello World!
-    <ng-container *ngFor="let i = index; let item of items" class="row">
-      <p>{{item}}</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-row mb-3">
+          <div class="col-2">
+          </div>
+          <div class="col-8">
+            <input class="form-control" [(ngModel)]="searchTerm" placeholder="Search by artist..." type="text">
+          </div>
+          <div class="col-2">
+            <button class="btn btn-outline-primary" (click)=searchAlbums() type="button">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <ng-container *ngFor="let item of data.results">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <img src={{item.artworkUrl100}} class="rounded float-right ml-2" alt="Card image cap">
+          <h5 class="card-title">{{item.collectionName}}</h5>
+          <p class="card-text">{{item.artistName}}</p>
+          <p class="card-text">{{item.primaryGenreName}}, {{item.releaseDate | date:'yyyy'}}</p>
+          <a href="#" class="btn btn-outline-primary">Open in Itunes</a>
+        </div>
+      </div>
     </ng-container>
   </div>
 </body>

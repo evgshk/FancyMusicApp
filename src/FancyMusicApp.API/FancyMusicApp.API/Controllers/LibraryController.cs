@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FancyMusicApp.Models.Enumerations;
+using FancyMusicApp.Models.Library.ItunesSearchResults;
 using FancyMusicApp.Services.Music.Library;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,9 +32,10 @@ namespace FancyMusicApp.API.Controllers
         [HttpGet("search")]
         public async Task<IActionResult> Search(string term)
         {
-            await _libraryService.Search(term, Models.Enumerations.MediaEntity.Song);
+            ItunesSearchResult result = 
+                await _libraryService.Search(term, MediaEntity.Album);
 
-            return Ok();
+            return Ok(result);
         }
     }
 }
