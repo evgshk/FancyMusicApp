@@ -2,45 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FancyMusicApp.Services.Music.Library;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace FancyMusicApp.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/library")]
     public class LibraryController : Controller
     {
-        // GET: api/<controller>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly ILibraryService _libraryService;
+
+        public LibraryController(ILibraryService libraryService)
         {
-            return new string[] { "value1", "value2" };
+            _libraryService = libraryService;
         }
 
-        // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        /// <summary>
+        /// Search media content at library
+        /// </summary>
+        /// <param name="term">The URL-encoded text string you want to search for. For example: jack+johnson.</param>
+        /// <param name="entity">The type of results you want returned, relative to the specified media type.</param>
+        /// <response code="200">Success.</response>
+        /// <response code="400">Error. An exception being occured.</response>
+        /// <response code="404">Error. Item not found.</response>
+        [HttpGet("search")]
+        public async Task<IActionResult> Search(string term)
         {
-            return "value";
-        }
+            await _libraryService.Search(term, Models.Enumerations.MediaEntity.Song);
 
-        // POST api/<controller>
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok();
         }
     }
 }
