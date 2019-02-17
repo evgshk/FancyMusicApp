@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule} from '@angular/common'
 import { LibraryService } from 'app/shared/services/library.service';
-import { SearchResultModel } from 'app/shared/models/searchResult.model';
+import { SearchResultModel } from 'app/shared/models/search-result.model';
+import { LocalCacheService } from 'app/shared/services/local-cache.service';
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -13,7 +14,8 @@ export class DashboardComponent implements OnInit {
   searchTerm: string = 'Jack Johnson';
 
   constructor(
-    private libraryService: LibraryService
+    private libraryService: LibraryService,
+    public localCache: LocalCacheService
   ) { }
 
   ngOnInit(): void {
@@ -21,10 +23,18 @@ export class DashboardComponent implements OnInit {
   }
 
   searchAlbums(){
-    this.libraryService.searchAlbums(this.searchTerm).subscribe(
+    let requestObservable = this.libraryService.searchAlbums(this.searchTerm); 
+
+    this.localCache.observable(this.searchTerm, requestObservable, 300).subscribe(
       (result) => this.data = result,
       (err) => console.error(err),
       () => console.log("items successfully loaded.")
     );
+
+    // this.libraryService.searchAlbums(this.searchTerm).subscribe(
+    //   (result) => this.data = result,
+    //   (err) => console.error(err),
+    //   () => console.log("items successfully loaded.")
+    // );
   }
 }

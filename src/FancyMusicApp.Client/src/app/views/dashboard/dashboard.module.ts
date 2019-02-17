@@ -7,6 +7,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ValuesService } from 'app/shared/services/values.service';
 import { CommonModule } from '@angular/common';
 import { LibraryService } from 'app/shared/services/library.service';
+import { LocalCacheService } from 'app/shared/services/local-cache.service';
+import { LocalStorageService } from 'app/shared/services/local-storage.service';
 
 @NgModule({
   imports: [
@@ -18,7 +20,9 @@ import { LibraryService } from 'app/shared/services/library.service';
   declarations: [ DashboardComponent ],
   providers: [
     ValuesService,
-    LibraryService
+    LibraryService,
+    LocalCacheService,
+    LocalStorageService
   ]
 })
 export class DashboardModule { }
