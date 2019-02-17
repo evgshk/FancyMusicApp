@@ -10,6 +10,7 @@ import { SearchResultModel } from 'app/shared/models/searchResult.model';
 export class DashboardComponent implements OnInit {
 
   data: SearchResultModel;
+  searchTerm: string = 'Jack Johnson';
 
   constructor(
     private libraryService: LibraryService
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   searchAlbums(){
-    this.libraryService.searchAlbums("skillet").subscribe(
+    this.libraryService.searchAlbums(this.searchTerm).subscribe(
       (result) => this.data = result,
       (err) => console.error(err),
       () => console.log("items successfully loaded.")

@@ -6,6 +6,7 @@ export class AlbumModel {
     collectionName: string;
     primaryGenreName: string;
     releaseDate: Date;
+    collectionViewUrl: string;
 
     public constructor(init?: Partial<AlbumModel>) {
         Object.assign(this, init);

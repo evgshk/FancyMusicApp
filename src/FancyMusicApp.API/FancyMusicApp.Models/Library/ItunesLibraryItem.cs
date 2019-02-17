@@ -14,5 +14,6 @@ namespace FancyMusicApp.Models.Library
         public string ArtworkUrl100 { get; set; }
         public string PrimaryGenreName { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public string CollectionViewUrl { get; set; }
     }
 }
