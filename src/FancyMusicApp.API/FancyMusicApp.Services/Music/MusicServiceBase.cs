@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FancyMusicApp.Services.Music
+﻿namespace FancyMusicApp.Services.Music
 {
     /// <inheritdoc />
     /// <summary>

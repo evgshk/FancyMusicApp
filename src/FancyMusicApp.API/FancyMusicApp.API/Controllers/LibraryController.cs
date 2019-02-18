@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using FancyMusicApp.Models.Enumerations;
 using FancyMusicApp.Models.Library.ItunesSearchResults;
 using FancyMusicApp.Services.Music.Library;

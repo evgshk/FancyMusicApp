@@ -2,7 +2,6 @@
 using FancyMusicApp.Models.Enumerations;
 using FancyMusicApp.Models.Library.ItunesSearchResults;
 using Newtonsoft.Json;
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
