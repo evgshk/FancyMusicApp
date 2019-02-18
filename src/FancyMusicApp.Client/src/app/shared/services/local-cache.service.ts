@@ -17,16 +17,16 @@ export class LocalCacheService {
   constructor(private localstorage: LocalStorageService) {}
 
   /**
-   * Cache or use result from observable
+   * Use cached result from observable
    *
-   * If cache key does not exist or is expired, observable supplied in argument is returned and result cached
+   * If cache key does not exist or is expired, null is returned
    *
    * @param key
    * @param observable
    * @param expires
    * @returns {Observable<T>}
    */
-  public observable<T>(key: string, observable: Observable<T>, expires:number = this.defaultExpires): Observable<T> {
+  public observable<T>(key: string): Observable<T> {
     //First fetch the item from localstorage (even though it may not exist)
     return this.localstorage.getItem(key)
       //If the cached value has expired, nullify it, otherwise pass it through
@@ -37,12 +37,12 @@ export class LocalCacheService {
         return null;
       })
       //At this point, if we encounter a null value, either it doesnt exist in the cache or it has expired.
-      //If it doesnt exist, simply return the observable that has been passed in, caching its value as it passes through
+      //If it doesnt exist, simply return null value
       .flatMap((val: CacheStorageRecord | null) => {
         if (!isEmpty(val)) {
           return Observable.of(val.value);
         } else {
-          return observable.flatMap((val:any) => this.value(key, val, expires)); //The result may have 'expires' explicitly set
+          return Observable.of(null);
         }
       })
   }
