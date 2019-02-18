@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FancyMusicApp.API.Controllers
 {
     [Route("api/library")]
-    public class LibraryController : Controller
+    public class LibraryController : ApiControllerBase
     {
         private readonly ILibraryService _libraryService;
 
@@ -34,6 +34,11 @@ namespace FancyMusicApp.API.Controllers
         {
             ItunesSearchResult result = 
                 await _libraryService.Search(term, MediaEntity.Album);
+
+            if(!result.IsSucceeded)
+            {
+                return BadRequest();
+            }
 
             return Ok(result);
         }
