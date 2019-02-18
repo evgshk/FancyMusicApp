@@ -1,9 +1,12 @@
+
+import {fromEvent as observableFromEvent, merge as observableMerge,  Observable, of } from 'rxjs';
+
+import {map} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { LibraryService } from 'app/shared/services/library.service';
 import { LocalCacheService } from 'app/shared/services/local-cache.service';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/observable/merge';
+
+
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -15,10 +18,10 @@ export class DashboardComponent implements OnInit {
   online$: Observable<boolean>; 
 
   constructor(private libraryService: LibraryService, public localCache: LocalCacheService) {
-    this.online$ = Observable.merge(
-      Observable.of(navigator.onLine),
-      Observable.fromEvent(window, 'online').map(() => true),
-      Observable.fromEvent(window, 'offline').map(() => false));
+    this.online$ = observableMerge(
+      of(navigator.onLine),
+      observableFromEvent(window, 'online').pipe(map(() => true)),
+      observableFromEvent(window, 'offline').pipe(map(() => false)));
   }
 
   ngOnInit(): void {

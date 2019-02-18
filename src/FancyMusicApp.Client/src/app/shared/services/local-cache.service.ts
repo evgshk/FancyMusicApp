@@ -1,7 +1,10 @@
+
+import {of as observableOf, Observable} from 'rxjs';
+
+import {mergeMap, map} from 'rxjs/operators';
 import {Injectable} from "@angular/core";
 import {LocalStorageService} from "./local-storage.service";
-import {Observable} from "rxjs/Observable";
-import 'rxjs/add/observable/of';
+
 import {isEmpty, isString, isNumber, isDate} from 'lodash';
 
 @Injectable()
@@ -28,23 +31,23 @@ export class LocalCacheService {
    */
   public observable<T>(key: string): Observable<T> {
     //First fetch the item from localstorage (even though it may not exist)
-    return this.localstorage.getItem(key)
+    return this.localstorage.getItem(key).pipe(
       //If the cached value has expired, nullify it, otherwise pass it through
-      .map((val: CacheStorageRecord) => {
+      map((val: CacheStorageRecord) => {
         if(val){
           return (new Date(val.expires)).getTime() > Date.now() ? val : null;
         }
         return null;
-      })
+      }),
       //At this point, if we encounter a null value, either it doesnt exist in the cache or it has expired.
       //If it doesnt exist, simply return null value
-      .flatMap((val: CacheStorageRecord | null) => {
+      mergeMap((val: CacheStorageRecord | null) => {
         if (!isEmpty(val)) {
-          return Observable.of(val.value);
+          return observableOf(val.value);
         } else {
-          return Observable.of(null);
+          return observableOf(null);
         }
-      })
+      }),)
   }
 
   /**
@@ -61,7 +64,7 @@ export class LocalCacheService {
     return this.localstorage.setItem(key, {
       expires: _expires,
       value: value
-    }).map(val => val.value);
+    }).pipe(map(val => val.value));
   }
 
   /**
