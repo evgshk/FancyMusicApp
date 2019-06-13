@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -63,7 +63,6 @@ const APP_DIRECTIVES = [
 import { AppRoutingModule } from './app.routing';
 
 // Import 3rd party components
-import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -73,7 +72,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ChartsModule,
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot(),
@@ -89,6 +87,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
+  exports: [
+    TabsModule
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
