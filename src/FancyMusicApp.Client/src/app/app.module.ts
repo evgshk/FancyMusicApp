@@ -32,17 +32,11 @@ const APP_COMPONENTS = [
 
 // Import directives
 import {
-  AsideToggleDirective,
-  NAV_DROPDOWN_DIRECTIVES,
   ReplaceDirective,
-  SIDEBAR_TOGGLE_DIRECTIVES
 } from './directives';
 
 const APP_DIRECTIVES = [
-  AsideToggleDirective,
-  NAV_DROPDOWN_DIRECTIVES,
   ReplaceDirective,
-  SIDEBAR_TOGGLE_DIRECTIVES
 ]
 
 // Import routing module
